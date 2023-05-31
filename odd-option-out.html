@@ -6,22 +6,29 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Math Genuis App</title>
+    <!-- Include Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+          <!-- Include custom CSS -->
     <link href="style.css" rel="stylesheet">
+      <!-- Include jQuery -->
     <script src="https://code.jquery.com/jquery-3.7.0.min.js"
     integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
+      <!-- Include Bootstrap Bundle -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
     crossorigin="anonymous"></script>
+     <!-- Include Vue.js -->
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
 </head>
 
 <body class="d-flex justify-content-center align-items-center" id="app">
     <div class="container m-0 p-0 d-flex flex-column justify-content-between">
+          <!-- Header container -->
         <div class="header-container d-flex justify-content-center align-items-center h-97 flex-row fs-36">
             Odd Option Out
         </div>
+           <!-- Content section -->
         <div class="content flex-1">
             <div class="d-flex gap-4 flex-column align-items-center fs-36" style="font-family: 'Salsa';margin-top: 15px;">
                 Circle the Odd ~
@@ -44,12 +51,19 @@
               </div>
             </div>
         </div>
-       
+          <!-- Footer container -->
         <div class="footer-container h-87 d-flex justify-content-center align-items-end flex-column">
             <a href="main-menu.html"><img class="menu-image" src="./images/menu.png" /></a>
         </div>
       
     </div>
+     <!-- Modal t
+      he modal is represented by the <div> element with the id="msg-modal".
+         It is used to display a message to the user indicating the completion of the "Odd Option Out" activity.
+          The modal contains a title, a message body, and a footer with an "OK" button. 
+          When the user clicks the "OK" button,
+          the moveToMainMenu method is called, 
+          which redirects the user to the main menu page.-->
     <div class="modal" id="msg-modal" tabindex="-1">
       <div class="modal-dialog modal-dialog-centered flex-1 justify-content-center align-items-center m-auto" style="max-width: 390px !important;">
         <div class="modal-content" style="width: 375px !important;">
@@ -68,6 +82,7 @@
       </div>
     </div>
     <script>
+       // Data for odd options
       var oddOptions=[
         {
             title:'Q1].',
@@ -94,6 +109,7 @@
             selected:false
         },
       ]
+      //creates instance of vue
       var app = Vue.createApp({
         data() {
             return {

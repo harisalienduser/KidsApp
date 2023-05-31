@@ -25,9 +25,11 @@
             Finger Counting
         </div>
         <div class="content flex-1">
+             <!-- Counting Instructions -->
             <div class="d-flex gap-4 flex-column align-items-center fs-36 f-Salsa">
                 Write Count of fingers~
             </div>
+             <!-- First Row of Images and Inputs -->
             <div class="d-flex flex-row justify-content-around">
                 <div class="d-flex gap-4 flex-column align-items-center"
                     v-for="c in countingArray.filter(m => m.row == 1)">
@@ -41,6 +43,7 @@
                     </div>
                 </div>
             </div>
+             <!-- Second Row of Images and Inputs -->
             <div class="d-flex flex-row justify-content-around gap-4 mt-20 pb-15">
                 <div class="d-flex gap-4 flex-column align-items-center"
                     v-for="c in countingArray.filter(m => m.row == 2)">
@@ -125,21 +128,24 @@
             },
             methods: {
                 fingerCountingStatus() {
+                    // Check if all user answers match the correct answers
                     if (this.countingArray.filter(m => m.answer == m.userAnswer).length == this.countingArray.length) {
-                        $('#msg-modal').modal('show');
+                        $('#msg-modal').modal('show'); // Show the modal
                     }
                 },
                 moveToMainMenu() {
+                      // Redirect to the main menu page
                     var arr = $(location).attr('href').split('/');
                     var toReplace = arr[arr.length - 1];
                     console.log(toReplace);
                     var newURL = $(location).attr('href').replace(toReplace, 'main-menu.html') + '?status=c';
                     console.log(newURL);
-                    $('#msg-modal').modal('hide');
+                    $('#msg-modal').modal('hide');// Hide the modal
                     window.location.replace(newURL);
                 }
             },
             created() {
+                 // Set focus on the first input field after a delay
                 setTimeout(() => { $('input.fc-input:first').focus(); }, 1000);
             }
         }).mount('#app');
