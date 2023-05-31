@@ -26,10 +26,14 @@
       <div class="d-flex gap-4 flex-column align-items-center fs-36" style="font-family: 'Salsa';">
         Match the Pair~
       </div>
+        <!-- Pair Matching Game -->
       <div class="d-flex flex-column justify-content-evenly justify-content-center align-items-center gap-2">
+          <!-- Displaying pairs -->
         <div class="d-flex flex-row justify-content-around w-100 align-items-center gap-5" v-for="p in displayPairs">
+        <!-- Displaying pair title -->
           <span v-bind:class="p.titleSelected ? 'pair-title text-success' : 'pair-title'"
             v-on:click="selectTitle(p)">{{p.title}}</span>
+               <!-- Displaying pair image -->
           <img :src="`./images/${p.image}`" v-bind:class="p.imageSelected ? 'opacity-40' : 'opacity-100'"
             v-on:click="selectImage(p)" />
         </div>
@@ -43,6 +47,7 @@
     </div>
 
   </div>
+    <!-- Modal -->
   <div class="modal" id="msg-modal" tabindex="-1">
     <div class="modal-dialog modal-dialog-centered flex-1 justify-content-center align-items-center m-auto" style="max-width: 390px !important;">
       <div class="modal-content" style="width: 375px !important;">
@@ -61,6 +66,7 @@
     </div>
   </div>
   <script>
+    // Data for displaying pairs
     var displayPairs = [
       {
         title: '5 Toys',
@@ -88,7 +94,7 @@
         imageSelected: false
       },
     ];
-
+// Correct pairs for comparison
     var pairs = [
       {
         title: '5 Toys',
@@ -115,6 +121,7 @@
         }
       },
       methods: {
+        // Function to handle the selection of an image
         selectImage(p) {
           //alert(p.image);
           var answer = this.answers.filter(m => m.image == p.image)[0];
@@ -125,6 +132,7 @@
           this.checkGameStatus();
           //if(p.image == answer.image)
         },
+         // Function to handle the selection of a title
         selectTitle(p) {
           var answer = this.answers.filter(m => m.title == p.title)[0];
           // console.log(answer);
@@ -148,12 +156,14 @@
           // }
           this.checkGameStatus();
         },
+          // Function to check the game completion status
         checkGameStatus() {
           if (this.displayPairs.filter(m => m.titleSelected && m.imageSelected).length == this.displayPairs.length) {
             //alert('Game Completed');
             $('#msg-modal').modal('show');
           }
         },
+        // Function to move to the main menu
         moveToMainMenu() {
           var arr = $(location).attr('href').split('/');
           var toReplace = arr[arr.length - 1];
