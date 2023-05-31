@@ -32,14 +32,11 @@
     </div>
     <script>
         //Setting timer to open a login page after 3 seconds delay
-        setTimeout(()=>{ 
-            var arr = $(location).attr('href').split('/');// Split the URL at "/"
-          var toReplace = arr[arr.length - 1];// Get the last part of the URL
-          console.log(toReplace);
-          var newURL = $(location).attr('href').replace(toReplace, 'landing.html');
-          console.log(newURL);
-         
-          window.location.replace(newURL);// Redirect to the new URL
+        setTimeout(() => {
+            var arr = $(location).attr('href');
+            var newURL = arr + "landing.html";
+            window.location.replace(newURL);
+            //https://imaginative-youtiao-9d17b0.netlify.app/
          },3000)
     </script>
 </body>
